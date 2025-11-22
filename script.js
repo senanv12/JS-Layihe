@@ -1,10 +1,6 @@
 let addTaskButton = document.querySelector('.add-task-btn');
 let listsContainer = document.querySelector('.lists');
 let sortButton = document.querySelector('.sort');
-let darkOrLightButton = document.querySelector('.darkorlight');
-
-
-
 
 addTaskButton.addEventListener('click', () => {
     addNewTask();
@@ -30,7 +26,8 @@ function addNewTask() {
     newSilButton.addEventListener('click', removeTask);
     listsContainer.appendChild(newList);
     i++;
-
+    const newTaskInput = newList.querySelector('.task-input');
+    newTaskInput.focus();
 }
 
 document.addEventListener('keydown', (e) => {
@@ -73,5 +70,3 @@ sortButton.addEventListener('click', () => {
         listsContainer.appendChild(task);
     });
 });
-
-
