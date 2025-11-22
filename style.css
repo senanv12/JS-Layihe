@@ -1,24 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 
 
 * {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto", sans-serif;
 
 }
 
 .todo {
     background-color: white;
-    border-radius: 4px;
-    width: 300px;
+    border-radius: 10px;
+    width: 336px;
     display: flex;
+    /* height: 236px; */
     flex-direction: column;
     align-items: center;
     border: 1px solid gray;
-    padding: 15px;
+    padding-bottom: 19px;
     position: relative;
     /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); */
+
 }
 
 .wrapper {
@@ -26,7 +29,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 15vw;
+    margin-top: 12vw;
 }
 
 p {
@@ -37,14 +40,16 @@ p {
 .lists {
     display: flex;
     gap: 2px;
-    width: 300px;
     flex-direction: column;
     padding: 2px;
-    width: 87%;
+    width: 266px;
     background-color: white;
     padding: 10px 15px;
     border: 1px solid gray;
     border-radius: 10px;
+    margin-bottom: 18px;
+    margin-left: 28px;
+    margin-right: 22px;
 
 }
 
@@ -61,17 +66,18 @@ input {
 }
 
 h1 {
-    margin-bottom: 50px;
+    /* margin-bottom: 40px; */
+    margin-top: 41px;
     color: black;
 }
 
 .add-task-btn {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     padding: 2px;
     border: none;
     border-radius: 35px;
-    height: 35px;
-    background-color: purple;
+    height: 42px;
+    background-color: #833AE0;
     color: white;
     cursor: pointer;
     display: flex;
@@ -85,15 +91,17 @@ h1 {
 }
 
 .x {
-    background-color: rgb(148, 1, 148);
+    background-color: #9953F1;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
     align-items: center;
     justify-content: center;
     display: flex;
     /* position: absolute; */
     left: 0px;
+    transition: background-color 0.3s, transform 0.1s, opacity 0.1s;
+
 }
 
 .x p {
@@ -141,28 +149,30 @@ h1 {
 
 .sort {
     /* position: absolute; */
-    top: 10vw;
+    /* top: 10vw; */
     margin-bottom: 10px;
-    margin-left: 240px;
+    margin-left: 270px;
+    width: 25px;
+    height: 15px;
     padding: 2.5px 5px;
     border: none;
     border-radius: 4px;
-    background-color: rgb(148, 1, 148);
     color: white;
     cursor: pointer;
 }
 
-.sort:hover {
-    background-color: rgb(187, 2, 187);
-}
-
 .sort:active {
     transform: scale(0.95);
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
+
 .add-task-btn:hover {
-    background-color: rgb(187, 2, 187);
+    background-color: #9953F1;
+}
+
+.add-task-btn:hover .x {
+    background-color: #AA68FE;
 }
 
 .add-task-btn:active {
@@ -188,7 +198,7 @@ h1 {
 }
 
 .sil:hover {
-    background-color: gray;
+    background-color: #833AE0;
     color: white;
     border: none;
 }
@@ -213,12 +223,12 @@ h1 {
 
 
 .bar {
-    width: 329px;
-    height: 22px;
-    background-color: orange;
-    border-top-right-radius: 3.4px;
-    border-top-left-radius: 3.4px;
+    width: 334.5px;
+    height: 28px;
+    background-color: #FFDC40;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     position: absolute;
     top: 0px;
-    border: 1px solid orange;
+    border: 1px solid #FFDC40;
 }
