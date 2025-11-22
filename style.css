@@ -18,7 +18,7 @@
     border: 1px solid gray;
     padding: 15px;
     position: relative;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); */
 }
 
 .wrapper {
@@ -61,7 +61,7 @@ input {
 }
 
 h1 {
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     color: black;
 }
 
@@ -80,6 +80,7 @@ h1 {
     /* position: relative; */
     width: 50%;
     /* justify-content: space-between; */
+
 }
 
 .x {
@@ -128,18 +129,35 @@ h1 {
 .task-input {
     position: absolute;
     left: 34px;
+    transition: color 0.3s, scale 0.3s;
+}
+
+.task-input:focus {
+    color: rgb(148, 1, 148);
+    scale: 101%;
+
 }
 
 .sort {
-    position: absolute;
-    top: 90px;
-    right: 40px;
+    /* position: absolute; */
+    top: 10vw;
+    margin-bottom: 10px;
+    margin-left: 240px;
     padding: 2.5px 5px;
     border: none;
     border-radius: 4px;
-    background-color: teal;
+    background-color: rgb(148, 1, 148);
     color: white;
     cursor: pointer;
+}
+
+.sort:hover {
+    background-color: rgb(187, 2, 187);
+}
+
+.sort:active {
+    transform: scale(0.95);
+    opacity: 0.8;
 }
 
 .add-task-btn:hover {
@@ -194,7 +212,7 @@ h1 {
 
 
 .bar {
-    width: 328.22px;
+    width: 329px;
     height: 22px;
     background-color: orange;
     border-top-right-radius: 3.4px;
