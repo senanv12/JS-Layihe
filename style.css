@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.todo {
+    background-color: antiquewhite;
+    border-radius: 4px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid teal;
+    padding: 15px;
+    position: relative;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+p {
+    margin: 0;
+    color: gray;
+}
+
+.lists {
+    display: flex;
+    gap: 2px;
+    width: 300px;
+    flex-direction: column;
+    padding: 2px;
+    width: 80%;
+
+}
+
+input {
+    border-style: none;
+    outline: none;
+}
+
+.lists {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    color: teal;
+}
+
+.add-task-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
+.sort {
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    padding: 2.5px 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
+.add-task-btn:hover {
+    background-color: darkcyan;
+}
+
+.add-task-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+.sil {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    color: gray;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+.sil:hover {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.list {
+    display: flex;
+    gap: 50px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+    padding: 5px;
+    width: 100%;
+    position: relative;
+    height: 25px;
+    align-items: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.bar {
+    width: 100%;
+    height: 12px;
+    background-color: teal;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    position: absolute;
+    top: 0px;
+    border: 1px solid teal;
+}
+
+.darkorlight {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
+.darkorlight:hover {
+    background-color: darkcyan;
+}
+
+.darkorlight:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
