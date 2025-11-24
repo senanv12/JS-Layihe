@@ -9,6 +9,7 @@
 
 }
 
+
 .todo {
     background-color: white;
     border-radius: 10px;
@@ -44,13 +45,14 @@ p {
     /* padding: 2px; */
     width: 266px;
     background-color: white;
-    padding: 10px 15px;
+    padding: 7.5px 10px;
     border: 1px solid gray;
     border-radius: 10px;
     margin-bottom: 18px;
     margin-left: 28px;
     margin-right: 22px;
-
+    font-family: 'To do', sans-serif;
+    ;
 }
 
 input {
@@ -141,11 +143,11 @@ h1 {
     transition: color 0.3s, scale 0.3s;
 }
 
-.task-input:focus {
-    color: rgb(148, 1, 148);
+/* .task-input:focus {
+    color: rgb(148, 1, 148);        
     scale: 101%;
 
-}
+} */
 
 .sort {
     /* position: absolute; */
@@ -188,14 +190,30 @@ h1 {
     color: gray;
     cursor: pointer;
     position: absolute;
-    right: 5px;
-    align-items: center;
-    padding: 2px;
-    justify-content: center;
     display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-
+    right: 5px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
+
+
+.sil:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+span {
+    font-size: 14px;
+    line-height: 14px;
+    align-self: center;
+    justify-self: center;
+    margin-left: 0.5px;
+    margin-bottom: 1px;
+}
+
+
 
 .sil:hover {
     background-color: #833AE0;
@@ -223,7 +241,7 @@ h1 {
 
 
 .bar {
-    width: 334.5px;
+    width: 334.65px;
     height: 28px;
     background-color: #FFDC40;
     border-top-right-radius: 10px;
@@ -241,3 +259,13 @@ h1 {
     background-color: #f5f5f55b;
 
 }
+
+
+
+
+/* body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    width: 100vw;
+} */

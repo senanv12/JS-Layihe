@@ -50,20 +50,20 @@ function addNew() {
     i++;
 
     const newTaskInput = newList.querySelector('.task-input');
-    newTaskInput.focus();
+    // newTaskInput.focus();                                                                elave funksiya
 
-    newTaskInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Delete') {
-            remove({ target: newSilButton });
-        }
-    });
+    // newTaskInput.addEventListener('keydown', (e) => {
+    //     if (e.key === 'Delete') {                                                         elave funksiya
+    //         remove({ target: newSilButton });
+    //     }
+    // });
 }
 
-document.addEventListener('keydown', (e) => {
-    if (e.key == 'Enter') {
-        addNew();
-    }
-});
+// document.addEventListener('keydown', (e) => {                                          elave funksiya
+//     if (e.key == 'Enter') {      
+//         addNew();
+//     }
+// });
 
 function remove(e) {
     if (lists.children.length > 1) {
