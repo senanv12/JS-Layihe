@@ -1,22 +1,39 @@
 let addTaskButton = document.querySelector('.add-task-btn');
 let lists = document.querySelector('.lists');
 let sortButton = document.querySelector('.sort');
-
 let ikinciclick = true;
+let initialSilButtons = document.querySelectorAll('.sil');
+let initialLists = document.querySelectorAll('.list');
+let i = 2;
+
+function addDragEvents(element) {
+    element.addEventListener('dragstart', () => {
+        element.classList.add('dragging');
+    });
+
+    element.addEventListener('dragend', () => {
+        element.classList.remove('dragging');
+    });
+}
+
+initialLists.forEach(item => {
+    addDragEvents(item);
+});
 
 addTaskButton.addEventListener('click', () => {
     addNew();
 });
 
-let initialSilButtons = document.querySelectorAll('.sil');
 initialSilButtons.forEach(button => {
     button.addEventListener('click', remove);
 });
 
-let i = 2;
 function addNew() {
     let newList = document.createElement('div');
+
     newList.classList.add('list');
+    newList.setAttribute('draggable', 'true');
+
     newList.innerHTML = `
     <p>${i}</p>
     <input type="text" class="task-input" placeholder="">
@@ -25,17 +42,28 @@ function addNew() {
 
     const newSilButton = newList.querySelector('.sil');
     newSilButton.addEventListener('click', remove);
+
+    addDragEvents(newList);
+
     lists.appendChild(newList);
+
     i++;
+
     const newTaskInput = newList.querySelector('.task-input');
     newTaskInput.focus();
+
+    newTaskInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Delete') {
+            remove({ target: newSilButton });
+        }
+    });
 }
 
 document.addEventListener('keydown', (e) => {
     if (e.key == 'Enter') {
         addNew();
     }
-})
+});
 
 function remove(e) {
     if (lists.children.length > 1) {
@@ -50,7 +78,6 @@ function remove(e) {
 function sortlogo(isHovering) {
     if (ikinciclick) {
         if (isHovering) {
-
             sortButton.src = "./images/sortdownblacks.svg";
         } else {
             sortButton.src = "./images/sortdowngrays.svg";
@@ -87,9 +114,12 @@ sortButton.addEventListener('click', () => {
         ikinciclick = false;
     } else {
         tasks.sort((a, b) => {
-            const idA = parseInt(a.querySelector('p').textContent, 10);
-            const idB = parseInt(b.querySelector('p').textContent, 10);
-            return idA - idB;
+            const taskA = a.querySelector('.task-input').value.toLowerCase();
+            const taskB = b.querySelector('.task-input').value.toLowerCase();
+
+            if (taskA > taskB) return -1;
+            if (taskA < taskB) return 1;
+            return 0;
         });
         ikinciclick = true;
     }
@@ -101,3 +131,33 @@ sortButton.addEventListener('click', () => {
 
     sortlogo(true);
 });
+
+lists.addEventListener('dragover', e => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(lists, e.clientY);
+
+    const dragging = document.querySelector('.dragging');
+
+    if (dragging) {
+        if (afterElement == null) {
+            lists.appendChild(dragging);
+        } else {
+            lists.insertBefore(dragging, afterElement);
+        }
+    }
+});
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.list:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}

@@ -39,9 +39,9 @@ p {
 
 .lists {
     display: flex;
-    gap: 2px;
+    gap: 5px;
     flex-direction: column;
-    padding: 2px;
+    /* padding: 2px; */
     width: 266px;
     background-color: white;
     padding: 10px 15px;
@@ -210,8 +210,8 @@ h1 {
     /* margin-bottom: 5px; */
 
     background-color: white;
-    /* padding-left: 5px;
-    padding-right: 05px; */
+    padding-left: 5px;
+    padding-right: 5px;
     width: 100%;
     position: relative;
     height: 25px;
@@ -231,4 +231,13 @@ h1 {
     position: absolute;
     top: 0px;
     border: 1px solid #FFDC40;
+}
+
+.list:hover {
+    background-color: #f5f5f55b;
+}
+
+.list:hover .task-input {
+    background-color: #f5f5f55b;
+
 }
