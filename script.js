@@ -37,7 +37,7 @@ function addNew() {
     newList.innerHTML = `
     <p>${i}</p>
     <input type="text" class="task-input" placeholder="">
-    <button class="sil">x</button>
+    <button class="sil"><span>x</span></button>
     `;
 
     const newSilButton = newList.querySelector('.sil');
