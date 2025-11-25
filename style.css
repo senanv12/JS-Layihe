@@ -55,6 +55,10 @@ p {
     ;
 }
 
+.sil span {
+    pointer-events: none;
+}
+
 input {
     border-style: none;
     outline: none;

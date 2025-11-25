@@ -43,6 +43,7 @@ function addNew() {
     const newSilButton = newList.querySelector('.sil');
     newSilButton.addEventListener('click', remove);
 
+
     addDragEvents(newList);
 
     lists.appendChild(newList);
