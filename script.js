@@ -2,9 +2,18 @@ let addTaskButton = document.querySelector('.add-task-btn');
 let lists = document.querySelector('.lists');
 let sortButton = document.querySelector('.sort');
 let ikinciclick = true;
-let initialSilButtons = document.querySelectorAll('.sil');
-let initialLists = document.querySelectorAll('.list');
-let i = 2;
+let i = 1;
+let plusButton = document.querySelector('.x');
+
+
+function updateTaskNumbers() {
+    const allLists = lists.querySelectorAll('.list');
+    i = 1;
+    allLists.forEach(list => {
+        list.querySelector('p').textContent = i;
+        i++;
+    });
+}
 
 function addDragEvents(element) {
     element.addEventListener('dragstart', () => {
@@ -16,19 +25,22 @@ function addDragEvents(element) {
     });
 }
 
-initialLists.forEach(item => {
-    addDragEvents(item);
-});
 
 addTaskButton.addEventListener('click', () => {
     addNew();
 });
 
-initialSilButtons.forEach(button => {
-    button.addEventListener('click', remove);
-});
 
 function addNew() {
+    const mainInput = document.querySelector('.main-input');
+    const inputContainer = document.querySelector('.input-container');
+
+    if (mainInput.value.trim() === '') {
+        inputContainer.classList.add('hidden');
+        return;
+    }
+
+    const textValue = mainInput.value;
     let newList = document.createElement('div');
 
     newList.classList.add('list');
@@ -36,43 +48,36 @@ function addNew() {
 
     newList.innerHTML = `
     <p>${i}</p>
-    <input type="text" class="task-input" placeholder="">
+    <input type="text" class="task-input" value="${textValue}" placeholder="" readonly>
     <button class="sil"><span>x</span></button>
     `;
+
+    addDragEvents(newList);
 
     const newSilButton = newList.querySelector('.sil');
     newSilButton.addEventListener('click', remove);
 
-
-    addDragEvents(newList);
+    lists.classList.remove('hidden');
 
     lists.appendChild(newList);
 
     i++;
-
-    const newTaskInput = newList.querySelector('.task-input');
-    // newTaskInput.focus();                                                                elave funksiya
-
-    // newTaskInput.addEventListener('keydown', (e) => {
-    //     if (e.key === 'Delete') {                                                         elave funksiya
-    //         remove({ target: newSilButton });
-    //     }
-    // });
+    mainInput.value = '';
+    inputContainer.classList.add('hidden');
 }
 
-// document.addEventListener('keydown', (e) => {                                          elave funksiya
-//     if (e.key == 'Enter') {      
-//         addNew();
-//     }
-// });
-
 function remove(e) {
-    if (lists.children.length > 1) {
-        const taskToRemove = e.target.parentNode;
+    const taskToRemove = e.target.closest('.list');
+
+    if (taskToRemove) {
         lists.removeChild(taskToRemove);
-    }
-    else if (lists.children.length === 1) {
-        lists.children[0].querySelector('.task-input').value = '';
+
+
+
+        if (lists.children.length === 0) {
+            lists.classList.add('hidden');
+            plus();
+        }
     }
 }
 
@@ -130,6 +135,7 @@ sortButton.addEventListener('click', () => {
         lists.appendChild(task);
     });
 
+
     sortlogo(true);
 });
 
@@ -162,3 +168,35 @@ function getDragAfterElement(container, y) {
         }
     }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
+
+function plus() {
+    const inputContainer = document.querySelector('.input-container');
+    const mainInput = document.querySelector('.main-input');
+
+    inputContainer.classList.remove('hidden');
+    mainInput.value = '';
+    mainInput.focus();
+}
+
+
+plusButton.addEventListener('click', (e) => {
+    plus()
+    e.stopPropagation();
+
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    plus();
+});
+
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === '+') {
+        e.preventDefault()
+        plus();
+    }
+    if (e.key === 'Enter') {
+        addNew();
+    }
+});

@@ -52,7 +52,7 @@ p {
     margin-left: 28px;
     margin-right: 22px;
     font-family: 'To do', sans-serif;
-    ;
+
 }
 
 .sil span {
@@ -177,11 +177,16 @@ h1 {
     background-color: #9953F1;
 }
 
-.add-task-btn:hover .x {
+.x:hover {
     background-color: #AA68FE;
 }
 
 .add-task-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+.x:active {
     transform: scale(0.95);
     opacity: 0.8;
 }
@@ -243,6 +248,34 @@ span {
 
 }
 
+.input-container {
+    display: flex;
+    /* gap: 50px; */
+    border-radius: 5px;
+    /* margin-bottom: 5px; */
+
+    background-color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    position: relative;
+    height: 25px;
+    align-items: center;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    /* padding: 2px; */
+    width: 266px;
+    background-color: white;
+    padding: 7.5px 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    margin-left: 28px;
+    margin-right: 22px;
+    font-family: 'To do', sans-serif;
+}
+
 
 .bar {
     width: 334.65px;
@@ -273,3 +306,20 @@ span {
     background-color: white;
     width: 100vw;
 } */
+
+
+
+.hidden {
+    display: none;
+}
+
+.input-remove {
+    right: 9.6px;
+    top: 9px;
+}
+
+.main-input {
+    width: 100%;
+    font-weight: bold;
+    margin-top: 5px;
+}

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-
     <title>ToDoList</title>
 </head>
 
@@ -13,17 +12,15 @@
     <div class="wrapper">
         <div class="todo">
             <div class="bar"></div>
-
             <h1>To-Do List</h1>
             <img class="sort" src="./images/sortupgrays.svg" alt="sortupgray">
-            <div class="lists">
-                <div class="list" draggable="true">
-                    <p>1</p>
-                    <input type="text" class="task-input" placeholder="">
-                    <button class="sil"><span>x</span></button>
-                </div>
 
+            <div class="input-container">
+                <input type="text" class="main-input" placeholder="">
+                <button class="sil input-remove">x</button>
+            </div>
 
+            <div class="lists hidden">
             </div>
 
             <div class="add-task-btn">
@@ -37,9 +34,7 @@
         </div>
     </div>
 
-
     <script src="./script.js"></script>
-
 </body>
 
 </html>
