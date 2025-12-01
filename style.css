@@ -88,7 +88,7 @@ h1 {
     color: white;
     cursor: pointer;
     display: flex;
-    gap: 5px;
+    gap: 0px;
     align-items: center;
     /* position: relative; */
     width: 150px;
@@ -180,8 +180,16 @@ h1 {
     background-color: #9953F1;
 }
 
+.add-task-btn:hover .x {
+    background-color: #AA68FE;
+}
+
 .x:hover {
     background-color: #AA68FE;
+}
+
+.x:hover.add-task-btn {
+    background-color: #9953F1;
 }
 
 .add-task-btn:active {
