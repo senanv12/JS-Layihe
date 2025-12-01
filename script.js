@@ -1,7 +1,7 @@
 let addTaskButton = document.querySelector('.add-task-btn');
 let lists = document.querySelector('.lists');
 let sortButton = document.querySelector('.sort');
-let ikinciclick = true;
+let scndclick = true;
 let i = 1;
 let plusButton = document.querySelector('.x');
 
@@ -49,12 +49,12 @@ function addNew() {
     newList.innerHTML = `
     <p>${i}</p>
     <input type="text" class="task-input" value="${textValue}" placeholder="" readonly>
-    <button class="sil"><span>x</span></button>
+    <button class="remove"><span>x</span></button>
     `;
 
     addDragEvents(newList);
 
-    const newSilButton = newList.querySelector('.sil');
+    const newSilButton = newList.querySelector('.remove');
     newSilButton.addEventListener('click', remove);
 
     lists.classList.remove('hidden');
@@ -82,7 +82,7 @@ function remove(e) {
 }
 
 function sortlogo(isHovering) {
-    if (ikinciclick) {
+    if (scndclick) {
         if (isHovering) {
             sortButton.src = "./images/sortdownblacks.svg";
         } else {
@@ -108,7 +108,7 @@ sortButton.addEventListener('mouseleave', () => {
 sortButton.addEventListener('click', () => {
     let tasks = Array.from(lists.children);
 
-    if (ikinciclick) {
+    if (scndclick) {
         tasks.sort((a, b) => {
             const taskA = a.querySelector('.task-input').value.toLowerCase();
             const taskB = b.querySelector('.task-input').value.toLowerCase();
@@ -117,7 +117,7 @@ sortButton.addEventListener('click', () => {
             if (taskA > taskB) return 1;
             return 0;
         });
-        ikinciclick = false;
+        scndclick = false;
     } else {
         tasks.sort((a, b) => {
             const taskA = a.querySelector('.task-input').value.toLowerCase();
@@ -127,7 +127,7 @@ sortButton.addEventListener('click', () => {
             if (taskA < taskB) return 1;
             return 0;
         });
-        ikinciclick = true;
+        scndclick = true;
     }
 
     lists.innerHTML = '';

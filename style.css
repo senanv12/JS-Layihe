@@ -18,7 +18,7 @@
     /* height: 236px; */
     flex-direction: column;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid #C4C4C4;
     padding-bottom: 19px;
     position: relative;
     /* box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); */
@@ -46,7 +46,7 @@ p {
     width: 266px;
     background-color: white;
     padding: 7.5px 10px;
-    border: 1px solid gray;
+    border: 1px solid #C4C4C4;
     border-radius: 10px;
     margin-bottom: 18px;
     margin-left: 28px;
@@ -55,7 +55,7 @@ p {
 
 }
 
-.sil span {
+.remove span {
     pointer-events: none;
 }
 
@@ -91,7 +91,7 @@ h1 {
     gap: 5px;
     align-items: center;
     /* position: relative; */
-    width: 50%;
+    width: 150px;
     /* justify-content: space-between; */
     transition: background-color 0.3s, transform 0.1s, opacity 0.1s;
 
@@ -100,8 +100,10 @@ h1 {
 .x {
     background-color: #9953F1;
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    /* border: 1px solid #C4C4C4; */
+    width: 46px;
+    height: 46px;
+    margin-left: -2px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -192,12 +194,12 @@ h1 {
     opacity: 0.8;
 }
 
-.sil {
+.remove {
     border-radius: 50%;
     width: 20px;
     height: 20px;
-    border: 1px solid gray;
-    color: gray;
+    border: 1px solid #C4C4C4;
+    color: #C4C4C4;
     cursor: pointer;
     position: absolute;
     display: flex;
@@ -209,7 +211,7 @@ h1 {
 }
 
 
-.sil:active {
+.remove:active {
     transform: scale(0.9);
     opacity: 0.8;
 }
@@ -225,7 +227,7 @@ span {
 
 
 
-.sil:hover {
+.remove:hover {
     background-color: #833AE0;
     color: white;
     border: none;
